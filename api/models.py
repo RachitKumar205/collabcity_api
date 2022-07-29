@@ -12,6 +12,10 @@ class Idea(models.Model):
     likes = models.IntegerField()
     dislikes = models.IntegerField()
 
+class Saves(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    image = models.CharField(max_length=255)
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     first_name = models.CharField(max_length=255,blank=True, null=True)
